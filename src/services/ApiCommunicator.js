@@ -23,6 +23,7 @@ export default class ApiCommunicator {
 
   getEndpoint(endpoint, params) {
     let url = `${this.baseUrl}/${endpoint}?format=json&${this.keyQuery}`;
+
     if (typeof params === "object") {
       for (var param in params) {
         url = `${url}&${param}=${params[param]}`;

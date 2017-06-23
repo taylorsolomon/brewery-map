@@ -12,7 +12,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    this.communicator.getEndpoint("locations", { region: "VA" }).then(data => {
+    this.communicator.getEndpoint("locations", { region: "TX" }).then(data => {
       this.setState({ breweries: data });
     });
   }
@@ -20,7 +20,7 @@ export default class App extends React.Component {
   render() {
     if (this.state && this.state.breweries.length) {
       const breweries = this.state.breweries.map(brewery =>
-        <li key={brewery.id}>{brewery.name}</li>
+        <li key={brewery.brewery.id}>{brewery.brewery.name}</li>
       );
 
       return (
